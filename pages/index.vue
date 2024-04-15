@@ -1,9 +1,9 @@
 <template>
     <div>
         <div class="container">
-            <div id="boxA" class="box" @dragover="dragOver" @drop="drop">{{ zone1 }}
+            <div id="boxA" class="box" @dragover="dragOver" @drop="drop">{{ zone1[zone1.length - 1] }}
             </div>
-            <div id="boxB" class="box" @dragover="dragOver" @drop="drop">{{ zone2 }}
+            <div id="boxB" class="box" @dragover="dragOver" @drop="drop">{{ zone2[zone2.length - 1] }}
 
             </div>
 
@@ -18,14 +18,14 @@
 
 <script setup>
 
-const zone1 = ref('zone1')
-const zone2 = ref('zone2')
+const zone1 = ref(['zone1'])
+const zone2 = ref(['zone2'])
 
 const dragOver = (event) => {
     event.preventDefault(); // Necessary to allow dropping
 };
 
-const drop = (event: any) => {
+const drop = (event) => {
     event.preventDefault();
     const data = event.dataTransfer.getData("text");
     const targetElement = event.target;
@@ -35,14 +35,14 @@ const drop = (event: any) => {
     if (!targetElement.getAttribute('draggable')) {
         targetElement.appendChild(draggedElement);
         if (targetElement.id === 'boxA') {
-            zone1.value = draggedElement.textContent;
+            zone1.value.push(draggedElement.textContent);
         } else if (targetElement.id === 'boxB') {
-            zone2.value = draggedElement.textContent;
+            zone2.value.push(draggedElement.textContent);
         }
     }
 };
 
-const dragStart = (event: any) => {
+const dragStart = (event) => {
     event.dataTransfer.setData("text", event.target.id);
 };
 
