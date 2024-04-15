@@ -25,7 +25,7 @@ const dragOver = (event) => {
     event.preventDefault(); // Necessary to allow dropping
 };
 
-const drop = (event) => {
+const drop = (event: any) => {
     event.preventDefault();
     const data = event.dataTransfer.getData("text");
     const targetElement = event.target;
@@ -35,14 +35,14 @@ const drop = (event) => {
     if (!targetElement.getAttribute('draggable')) {
         targetElement.appendChild(draggedElement);
         if (targetElement.id === 'boxA') {
-            zone1.value = draggedElement?.textContent;
+            zone1.value = draggedElement.textContent;
         } else if (targetElement.id === 'boxB') {
-            zone2.value = draggedElement?.textContent;
+            zone2.value = draggedElement.textContent;
         }
     }
 };
 
-const dragStart = (event) => {
+const dragStart = (event: any) => {
     event.dataTransfer.setData("text", event.target.id);
 };
 
