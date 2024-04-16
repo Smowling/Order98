@@ -1,24 +1,36 @@
 <template>
     <div>
         <div class="container">
-            <div id="asc1" class="box" @dragover="dragOver" @drop="drop">{{ asc1[asc1.length - 1] }}
-            </div>
-            <div id="asc2" class="box" @dragover="dragOver" @drop="drop">{{ asc2[asc2.length - 1] }}
+            <div class="columns-2">
+                <div id="asc1" class="box" @dragover="dragOver" @drop="drop">{{ asc1[asc1.length - 1] }}
+                </div>
+                <div id="asc2" class="box" @dragover="dragOver" @drop="drop">{{ asc2[asc2.length - 1] }}
+                </div>
+                <div id="desc1" class="box" @dragover="dragOver" @drop="drop">{{ desc1[desc1.length - 1] }}
+                </div>
+                <div id="desc2" class="box" @dragover="dragOver" @drop="drop">{{ desc2[desc2.length - 1] }}
+                </div>
             </div>
         </div>
         <div class="container">
-            <div id="1" draggable="true" class="card" @dragstart="dragStart">2</div>
-            <div id="2" draggable="true" class="card" @dragstart="dragStart">3</div>
-            <div id="3" draggable="true" class="card" @dragstart="dragStart">4</div>
+            <div class="columns-4">
+                <div v-for="(card, index) in hand" id="index" draggable="true" class="card" @dragstart="dragStart">{{
+                    card }}</div>
+            </div>
+
         </div>
     </div>
 </template>
 
 <script setup>
 
-const asc1 = ref(['1'])
-const asc2 = ref(['1'])
+const asc1 = ref([1])
+const asc2 = ref([1])
+const desc1 = ref([100])
+const desc2 = ref([100])
 
+const hand = ref([2, 3, 4, 5, 6, 7, 8, 9])
+const deck = ref([99, 98, 97, 96])
 
 
 
@@ -36,7 +48,8 @@ const drop = (event) => {
     if (!targetElement.getAttribute('draggable')) {
         targetElement.appendChild(draggedElement);
         if (targetElement.id === 'asc1') {
-            asc1.value.push(draggedElement.textContent);
+            asc1.value.push(parseInt(draggedElement.textContent, 10));
+            console.log(asc1.value)
         } else if (targetElement.id === 'asc2') {
             asc2.value.push(draggedElement.textContent);
         }
