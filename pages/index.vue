@@ -13,10 +13,8 @@
             </div>
         </div>
         <div class="container">
-            <div class="columns-4">
-                <div v-for="(card, index) in hand" id="index" draggable="true" class="card" @dragstart="dragStart">{{
-                    card }}</div>
-            </div>
+            <div v-for="(card, index) in hand" :id="index" draggable="true" class="card" @dragstart="dragStart">{{
+                card }} </div>
 
         </div>
     </div>
@@ -43,13 +41,16 @@ const drop = (event) => {
     const data = event.dataTransfer.getData("text");
     const targetElement = event.target;
     const draggedElement = document.getElementById(data);
+    const cardIndex = parseInt(draggedElement.id, 10);
 
     // Prevent dropping if the target is also draggable
     if (!targetElement.getAttribute('draggable')) {
         targetElement.appendChild(draggedElement);
         if (targetElement.id === 'asc1') {
             asc1.value.push(parseInt(draggedElement.textContent, 10));
+            hand.value.splice(cardIndex, 1);
             console.log(asc1.value)
+            console.log("hand size: ", hand.value.length, " cards: ", hand.value)
         } else if (targetElement.id === 'asc2') {
             asc2.value.push(draggedElement.textContent);
         }
