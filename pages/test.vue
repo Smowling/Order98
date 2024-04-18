@@ -1,16 +1,20 @@
 <template>
-    <!-- <div class="grid justify-items: center;"> -->
-    <div class="game">
-        <nav>test</nav>
-        <div class="dropzone">
-            <div class="zone"></div>
-            <div class="zone"></div>
-            <div class="zone"></div>
-            <div class="zone"></div>
+    <div class="flex justify-around">
+        <div class="game">
+            <nav>test</nav>
+            <div class="flex justify-evenly">
+                <div class="zone"></div>
+                <div class="zone"></div>
+
+            </div>
+            <div class="flex justify-evenly">
+                <div class="zone"></div>
+                <div class="zone"></div>
+
+            </div>
+            <div class="hand"></div>
         </div>
-        <div class="hand"></div>
     </div>
-    <!-- </div> -->
 </template>
 
 <script setup lang="ts">
@@ -19,10 +23,11 @@
 
 <style scoped>
 .game {
-    width: 98%;
-    max-width: 800px;
+    width: 100%;
+    height: 840px;
+    max-height: 840px;
+    max-width: 600px;
     background-color: blue;
-    height: 1000px;
     display: flex;
     flex-direction: column;
 }
@@ -46,8 +51,10 @@
 
 .zone {
     background-color: cadetblue;
-    width: 95%;
+    width: 40%;
+    min-width: 64px;
     height: 95%;
+    min-height: 80px;
     border: 5px solid black;
     border-radius: 5px;
     justify-content: center;
