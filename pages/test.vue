@@ -34,7 +34,8 @@
     display: grid;
     grid-template-rows: 50% 50%;
     grid-template-columns: 50% 50%;
-    justify-content: center;
+    justify-items: center;
+    padding: 10px;
 }
 
 .hand {
@@ -47,9 +48,10 @@
     background-color: cadetblue;
     width: 95%;
     height: 95%;
-    border: 5px;
+    border: 5px solid black;
     border-radius: 5px;
-    border-color: black;
     justify-content: center;
+    -webkit-box-shadow: 3px 6px 20px 3px #7A7A7A;
+    box-shadow: 3px 6px 20px 3px #7A7A7A;
 }
 </style>
