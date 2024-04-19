@@ -12,13 +12,15 @@
                 <div class="zone"></div>
 
             </div>
-            <div class="hand"></div>
+            <div class="hand flex justify-evenly">
+                <div class="card" v-for="card in cards">{{ card }}</div>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-
+const cards = ref([3, 4, 5, 6, 7, 8, 9, 11])
 </script>
 
 <style scoped>
@@ -47,6 +49,12 @@
     width: 100%;
     height: 100%;
     background-color: aqua;
+}
+
+.card {
+    width: 48px;
+    height: 84px;
+    background-color: rgb(157, 75, 171);
 }
 
 .zone {
