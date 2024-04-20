@@ -3,24 +3,34 @@
         <div class="game">
             <nav>test</nav>
             <div class="flex justify-evenly">
-                <div class="zone"></div>
-                <div class="zone"></div>
+                <div class="zone">{{ game.piles.desc1[game.piles.desc1.length - 1] }}</div>
+                <div class="zone">{{ game.piles.desc2[game.piles.desc2.length - 1] }}</div>
 
             </div>
             <div class="flex justify-evenly">
-                <div class="zone"></div>
-                <div class="zone"></div>
+                <div class="zone">{{ game.piles.asc1[game.piles.asc1.length - 1] }}</div>
+                <div class="zone">{{ game.piles.asc2[game.piles.asc2.length - 1] }}</div>
 
             </div>
             <div class="hand flex justify-evenly">
-                <div class="card" v-for="card in cards">{{ card }}</div>
+                <div class="card" v-for="card in game.hand">{{ card }}</div>
             </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-const cards = ref([3, 4, 5, 6, 7, 8, 9, 11])
+const game = ref({
+    "deck": [3, 4, 5, 6, 7, 8, 9, 11],
+    "hand": [23, 43, 12, 52, 31, 15, 23, 15],
+    "piles": {
+        "asc1": [1],
+        "asc2": [1],
+        "desc1": [100],
+        "desc2": [100],
+
+    }
+})
 </script>
 
 <style scoped>
