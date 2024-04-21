@@ -12,8 +12,8 @@
                 <div class="zone">{{ last(game.piles.asc2) }}</div>
 
             </div>
-            <div class="hand flex justify-evenly">
-                <div class="card" v-for="card in game.hand">{{ card }}</div>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="card flex-wrap" v-for="card in game.hand">{{ card }}</div>
             </div>
         </div>
     </div>
