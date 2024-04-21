@@ -3,13 +3,13 @@
         <div class="game">
             <nav>test</nav>
             <div class="flex justify-evenly">
-                <div class="zone">{{ game.piles.desc1[game.piles.desc1.length - 1] }}</div>
-                <div class="zone">{{ game.piles.desc2[game.piles.desc2.length - 1] }}</div>
+                <div class="zone">{{ last(game.piles.desc1) }}</div>
+                <div class="zone">{{ last(game.piles.desc2) }}</div>
 
             </div>
             <div class="flex justify-evenly">
-                <div class="zone">{{ game.piles.asc1[game.piles.asc1.length - 1] }}</div>
-                <div class="zone">{{ game.piles.asc2[game.piles.asc2.length - 1] }}</div>
+                <div class="zone">{{ last(game.piles.asc1) }}</div>
+                <div class="zone">{{ last(game.piles.asc2) }}</div>
 
             </div>
             <div class="hand flex justify-evenly">
@@ -31,6 +31,11 @@ const game = ref({
 
     }
 })
+
+function last(element: number[]) {
+    return element[element.length - 1]
+}
+
 </script>
 
 <style scoped>
