@@ -15,6 +15,7 @@
             <div class="grid grid-cols-4 gap-4">
                 <div class="card flex-wrap" v-for="card in game.hand">{{ card }}</div>
             </div>
+            <button @click="test">log</button>
         </div>
     </div>
 </template>
@@ -32,6 +33,13 @@ const game = ref({
     }
 })
 
+function test() {
+    console.log(game.value.hand.indexOf(12, 0))
+    const index: number = game.value.hand.indexOf(12, 0)
+    if (index > -1) {
+        game.value.piles.asc1.push(...game.value.hand.splice(index, 1))
+    }
+}
 function last(element: number[]) {
     return element[element.length - 1]
 }
