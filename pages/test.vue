@@ -2,6 +2,7 @@
     <div class="flex justify-around">
         <div class="game">
             <nav>test</nav>
+            <DropZones :piles="game.piles" />
             <div class="flex justify-evenly">
                 <div class="zone">{{ last(game.piles.desc1) }}</div>
                 <div class="zone">{{ last(game.piles.desc2) }}</div>
@@ -21,6 +22,8 @@
 </template>
 
 <script setup lang="ts">
+import DropZones from '~/src/components/DropZones.vue';
+
 const game = ref({
     "deck": [3, 4, 5, 6, 7, 8, 9, 11],
     "hand": [23, 43, 12, 52, 31, 15, 23, 15],
