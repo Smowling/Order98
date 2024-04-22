@@ -3,16 +3,7 @@
         <div class="game">
             <nav>test</nav>
             <DropZones :piles="game.piles" />
-            <div class="flex justify-evenly">
-                <div class="zone">{{ last(game.piles.desc1) }}</div>
-                <div class="zone">{{ last(game.piles.desc2) }}</div>
 
-            </div>
-            <div class="flex justify-evenly">
-                <div class="zone">{{ last(game.piles.asc1) }}</div>
-                <div class="zone">{{ last(game.piles.asc2) }}</div>
-
-            </div>
             <div class="grid grid-cols-4 gap-4">
                 <div class="card flex-wrap" v-for="card in game.hand">{{ card }}</div>
             </div>
