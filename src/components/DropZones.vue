@@ -12,6 +12,20 @@
 </template>
 
 <script setup lang="ts">
+
+interface Piles {
+    desc1: number[];
+    desc2: number[];
+    asc1: number[];
+    asc2: number[];
+}
+
+interface Attrs {
+    piles: Piles;
+}
+
+const props = defineProps<{ $attrs: Attrs }>();
+
 function last(element: number[]) {
     return element[element.length - 1]
 }
