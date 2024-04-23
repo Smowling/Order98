@@ -22,19 +22,23 @@ export const useGameStore = defineStore('game', {
             }
 
             while (this.hand.length < 8) {
-                this.hand.push(this.deck.pop())
+                this.draw();
             }
-            console.log(this.deck.length)
-
+            localStorage.setItem('deck', JSON.stringify(this.deck));
+            localStorage.setItem('hand', JSON.stringify(this.hand));
+        },
+        draw() {
+            const card = this.deck.pop();
+            if (card !== undefined) {
+                this.hand.push(card);
+            }
         },
         test() {
             const index = this.hand.indexOf(12);
             if (index > -1) {
                 this.piles.asc1.push(...this.hand.splice(index, 1));
             }
-        },
-        last(element: number[]) {
-            return element[element.length - 1];
         }
+
     }
 });

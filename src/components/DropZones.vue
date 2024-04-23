@@ -19,11 +19,11 @@ const game = useGameStore();
 function last(element: number[]) {
     return element[element.length - 1]
 }
-const dragOver = (event) => {
+const dragOver = (event: any) => {
     event.preventDefault(); // Necessary to allow dropping
 };
 
-const drop = (event) => {
+const drop = (event: any) => {
     event.preventDefault();
     const data = event.dataTransfer.getData("text");
     const targetElement = event.target;
