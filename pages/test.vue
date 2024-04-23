@@ -17,10 +17,14 @@ import DropZones from '~/src/components/DropZones.vue';
 
 const game = useGameStore();
 
-function test() {
-    console.log(game.hand.indexOf(12, 0))
+onMounted(() => {
+    console.log(localStorage.getItem('setupDone'))
+    if (!localStorage.getItem('setupDone')) {
+        game.setup();
+        localStorage.setItem('setupDone', 'true');
+    }
+})
 
-}
 function last(element: number[]) {
     return element[element.length - 1]
 }

@@ -1,32 +1,20 @@
 <template>
     <div class="grid grid-cols-1 justify-evenly">
         <div class="flex justify-evenly">
-            <div class="zone" @dragover="dragOver" @drop="drop">{{ last($attrs.piles.desc1) }}</div>
-            <div class="zone" @dragover="dragOver" @drop="drop">{{ last($attrs.piles.desc2) }}</div>
+            <div class="zone" @dragover="dragOver" @drop="drop">{{ last(game.piles.desc1) }}</div>
+            <div class="zone" @dragover="dragOver" @drop="drop">{{ last(game.piles.desc2) }}</div>
 
         </div>
         <div class="flex justify-evenly">
-            <div class="zone" @dragover="dragOver" @drop="drop">{{ last($attrs.piles.asc1) }}</div>
-            <div class="zone" @dragover="dragOver" @drop="drop">{{ last($attrs.piles.asc2) }}</div>
+            <div class="zone" @dragover="dragOver" @drop="drop">{{ last(game.piles.asc1) }}</div>
+            <div class="zone" @dragover="dragOver" @drop="drop">{{ last(game.piles.asc2) }}</div>
 
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-
-// interface Piles {
-//     asc1: number[];
-//     asc2: number[];
-//     desc1: number[];
-//     desc2: number[];
-// }
-
-// interface Attrs {
-//     piles: Piles;
-// }
-
-// defineProps<{ $attrs: Attrs }>();
+const game = useGameStore();
 
 function last(element: number[]) {
     return element[element.length - 1]
@@ -40,19 +28,23 @@ const drop = (event) => {
     const data = event.dataTransfer.getData("text");
     const targetElement = event.target;
     const draggedElement = document.getElementById(data);
-    const cardIndex = parseInt(draggedElement.id, 10);
+    // const cardIndex = parseInt(draggedElement.id, 10);
 
     // Prevent dropping if the target is also draggable
     if (!targetElement.getAttribute('draggable')) {
-        // targetElement.appendChild(draggedElement);
-        // if (targetElement.id === 'asc1') {
-        //     $attrs.piles.desc1.push(parseInt(draggedElement.textContent, 10));
-        //     hand.value.splice(cardIndex, 1);
-        //     console.log(asc1.value)
-        //     console.log("hand size: ", hand.value.length, " cards: ", hand.value)
-        // } else if (targetElement.id === 'asc2') {
-        //     asc2.value.push(draggedElement.textContent);
-        // }
+        targetElement.appendChild(draggedElement);
+        if (targetElement.id === 'asc1') {
+            console.log("dragged to asc1")
+        }
+        if (targetElement.id === 'asc2') {
+            console.log("dragged to asc1")
+        }
+        if (targetElement.id === 'desc1') {
+            console.log("dragged to desc1")
+        }
+        if (targetElement.id === 'desc2') {
+            console.log("dragged to desc2")
+        }
     }
 };
 
