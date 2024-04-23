@@ -7,7 +7,7 @@
             <div class="grid grid-cols-4 gap-4">
                 <div class="card flex-wrap" v-for="card in game.hand">{{ card }}</div>
             </div>
-            <button @click="test">log</button>
+            <button @click="game.test">log</button>
         </div>
     </div>
 </template>
@@ -15,24 +15,11 @@
 <script setup lang="ts">
 import DropZones from '~/src/components/DropZones.vue';
 
-const game = ref({
-    "deck": [3, 4, 5, 6, 7, 8, 9, 11],
-    "hand": [23, 43, 12, 52, 31, 15, 23, 15],
-    "piles": {
-        "asc1": [1],
-        "asc2": [1],
-        "desc1": [100],
-        "desc2": [100],
-
-    }
-})
+const game = useGameStore();
 
 function test() {
-    console.log(game.value.hand.indexOf(12, 0))
-    const index: number = game.value.hand.indexOf(12, 0)
-    if (index > -1) {
-        game.value.piles.asc1.push(...game.value.hand.splice(index, 1))
-    }
+    console.log(game.hand.indexOf(12, 0))
+
 }
 function last(element: number[]) {
     return element[element.length - 1]
