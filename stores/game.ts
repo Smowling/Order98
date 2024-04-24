@@ -26,6 +26,7 @@ export const useGameStore = defineStore('game', {
             }
             localStorage.setItem('deck', JSON.stringify(this.deck));
             localStorage.setItem('hand', JSON.stringify(this.hand));
+            localStorage.setItem('piles', JSON.stringify(this.piles))
         },
         draw() {
             const card = this.deck.pop();
