@@ -24,14 +24,29 @@ export const useGameStore = defineStore('game', {
             while (this.hand.length < 8) {
                 this.draw();
             }
-            localStorage.setItem('deck', JSON.stringify(this.deck));
-            localStorage.setItem('hand', JSON.stringify(this.hand));
-            localStorage.setItem('piles', JSON.stringify(this.piles))
+            this.saveGameState();
+        },
+        saveGameState() {
+            const gameState = {
+                deck: this.deck,
+                hand: this.hand,
+                piles: this.piles
+            };
+            localStorage.setItem('gameState', JSON.stringify(gameState));
         },
         draw() {
             const card = this.deck.pop();
             if (card !== undefined) {
                 this.hand.push(card);
+            }
+        },
+        loadGameState() {
+            const savedState = localStorage.getItem('gameState');
+            if (savedState) {
+                const { deck, hand, piles } = JSON.parse(savedState);
+                this.deck = deck;
+                this.hand = hand;
+                this.piles = piles;
             }
         },
         test() {
