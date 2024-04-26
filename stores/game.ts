@@ -66,15 +66,7 @@ export const useGameStore = defineStore('game', {
                 this.hand.push(card);
             }
         },
-        // loadGameState() {
-        //     const savedState = localStorage.getItem('gameState');
-        //     if (savedState) {
-        //         const { deck, hand, piles } = JSON.parse(savedState);
-        //         this.deck = deck;
-        //         this.hand = hand;
-        //         this.piles = piles;
-        //     }
-        // },
+
         async loadGameState() {
             const savedState = localStorage.getItem('gameState');
             if (savedState) {

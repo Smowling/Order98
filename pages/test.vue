@@ -19,7 +19,7 @@ const game = useGameStore();
 
 onMounted(() => {
     console.log(localStorage.getItem('setupDone'))
-    if (!localStorage.getItem('deck')) {
+    if (!localStorage.getItem('gameState')) {
         game.setup();
 
     }
