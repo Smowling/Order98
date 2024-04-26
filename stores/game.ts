@@ -106,6 +106,12 @@ export const useGameStore = defineStore('game', {
                 this.deck = gameState.deck;
                 this.hand = gameState.hand;
                 this.piles = gameState.piles;
+                const test = {
+                    deck: this.deck,
+                    hand: this.hand,
+                    piles: this.piles
+                };
+                localStorage.setItem("test", JSON.stringify(test));
             }
         },
         test() {

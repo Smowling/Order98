@@ -9,6 +9,9 @@
             </div>
             <button @click="game.test">log</button>
         </div>
+        <div class="grid grid-cols-10 gap-4">
+            <div class="card flex-wrap" v-for="card in game.deck">{{ card }}</div>
+        </div>
     </div>
 </template>
 
@@ -21,9 +24,10 @@ onMounted(() => {
     console.log(localStorage.getItem('setupDone'))
     if (!localStorage.getItem('gameState')) {
         game.setup();
-
     }
+    game.loadGameState()
 })
+
 
 function last(element: number[]) {
     return element[element.length - 1]
