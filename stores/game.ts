@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia';
 
+const key = '6789qweedaf2er896qwer68f6qetqrt6lj7k6doljwer'
+
 export const useGameStore = defineStore('game', {
     state: () => ({
         deck: [] as number[],
@@ -54,7 +56,8 @@ export const useGameStore = defineStore('game', {
             // Store the encrypted data and the iv in localStorage
             localStorage.setItem('gameState', JSON.stringify({
                 data: Array.from(new Uint8Array(encryptedData)),
-                iv: Array.from(iv)
+                iv: Array.from(iv),
+                key: key
             }));
         },
         draw() {
@@ -75,7 +78,7 @@ export const useGameStore = defineStore('game', {
         async loadGameState() {
             const savedState = localStorage.getItem('gameState');
             if (savedState) {
-                const { data, iv } = JSON.parse(savedState);
+                const { data, iv, k } = JSON.parse(savedState);
                 const encryptedData = new Uint8Array(data);
                 const ivArray = new Uint8Array(iv);
 
@@ -84,7 +87,7 @@ export const useGameStore = defineStore('game', {
                     "jwk", // the format of the key to import
                     {   // this is an example key object, which you should replace with your actual key object
                         kty: "oct",
-                        k: "your-encryption-key-here",
+                        k: k,
                         alg: "A256GCM",
                         ext: true,
                     },
