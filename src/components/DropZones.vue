@@ -37,7 +37,7 @@ const drop = (event: any) => {
             console.log("dragged to asc1")
         }
         if (targetElement.id === 'asc2') {
-            console.log("dragged to asc1")
+            console.log("dragged to asc2")
         }
         if (targetElement.id === 'desc1') {
             console.log("dragged to desc1")
