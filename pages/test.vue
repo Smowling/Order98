@@ -13,7 +13,6 @@
 </template>
 
 <script setup lang="ts">
-import DropZones from '~/src/components/DropZones.vue';
 
 const game = useGameStore();
 
