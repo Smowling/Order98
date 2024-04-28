@@ -1,6 +1,8 @@
 <template>
     <div class="grid grid-cols-4 gap-4">
-        <div class="card flex-wrap" v-for="card in game.hand" draggable="true" @dragstart="dragStart">{{ card }}</div>
+        <div class="card flex-wrap" v-for="(card, index) in game.hand" :id="index" draggable="true"
+            @dragstart="dragStart">
+            {{ card }}</div>
     </div>
 </template>
 
