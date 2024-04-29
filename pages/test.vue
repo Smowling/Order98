@@ -1,6 +1,8 @@
 <template>
     <WindowFrame>
-        <nav>navigation todo</nav>
+        <nav>
+            <Drawer />
+        </nav>
         <DropZones />
         <Cards />
     </WindowFrame>
