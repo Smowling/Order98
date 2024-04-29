@@ -4,9 +4,9 @@
             <nav>test</nav>
             <DropZones />
             <Cards />
-            <div class="grid grid-cols-4 gap-4">
+            <!-- <div class="grid grid-cols-4 gap-4">
                 <div class="card flex-wrap" v-for="card in game.hand">{{ card }}</div>
-            </div>
+            </div> -->
             <button @click="game.test">log</button>
         </div>
     </div>
