@@ -1,15 +1,10 @@
 <template>
-    <div class="flex justify-around">
-        <div class="game">
-            <nav>test</nav>
-            <DropZones />
-            <Cards />
-            <!-- <div class="grid grid-cols-4 gap-4">
-                <div class="card flex-wrap" v-for="card in game.hand">{{ card }}</div>
-            </div> -->
-            <button @click="game.test">log</button>
-        </div>
-    </div>
+    <WindowFrame>
+        <nav>test</nav>
+        <DropZones />
+        <Cards />
+    </WindowFrame>
+
 </template>
 
 <script setup lang="ts">
