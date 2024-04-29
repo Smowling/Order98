@@ -8,7 +8,7 @@ export default <Partial<Config>>{
         },
         extend: {
             colors: {
-                primary: colors.gray
+                primary: colors.cyan
             }
         }
     }
