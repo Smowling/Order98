@@ -16,9 +16,7 @@
 <script setup lang="ts">
 const game = useGameStore();
 
-function last(element: number[]) {
-    return element[element.length - 1]
-}
+
 const dragOver = (event: any) => {
     event.preventDefault(); // Necessary to allow dropping
 };
