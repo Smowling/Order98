@@ -28,6 +28,8 @@ const drop = (event: any) => {
     const draggedElement = document.getElementById(data);
     const cardIndex = parseInt(draggedElement.id, 10);
 
+    // console.log(targetElement.textContent) target value
+
     // Prevent dropping if the target is also draggable
     if (!targetElement.getAttribute('draggable')) {
         targetElement.appendChild(draggedElement);
