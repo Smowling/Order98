@@ -19,7 +19,7 @@ onMounted(() => {
     }
     else {
         const gameState = JSON.parse(localStorage.getItem('gameState')!);
-        game.load(gameState);
+        game.load(gameState.gameState);
     }
 })
 
