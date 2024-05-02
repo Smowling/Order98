@@ -14,11 +14,13 @@
 const game = useGameStore();
 
 onMounted(() => {
-    console.log(localStorage.getItem('setupDone'))
     if (!localStorage.getItem('gameState')) {
         game.setup();
     }
-    game.loadGameState()
+    else {
+        const gameState = JSON.parse(localStorage.getItem('gameState')!);
+        game.load(gameState);
+    }
 })
 
 
