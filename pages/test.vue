@@ -24,10 +24,6 @@ onMounted(() => {
 })
 
 
-function last(element: number[]) {
-    return element[element.length - 1]
-}
-
 </script>
 
 <style scoped>
