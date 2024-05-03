@@ -43,6 +43,7 @@ export default function useDragAndDrop() {
                 }
             }
         }
+        game.playCard();
     };
     return { dragOver, drop };
 }
