@@ -45,5 +45,8 @@ export default function useDragAndDrop() {
         }
         game.playCard();
     };
-    return { dragOver, drop };
+    const dragStart = (event: any) => {
+        event.dataTransfer.setData("text", event.target.id);
+    };
+    return { dragOver, drop, dragStart };
 }

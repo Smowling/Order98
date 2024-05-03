@@ -1,17 +1,18 @@
 <template>
     <div class="grid grid-cols-4 gap-4">
-        <div class="card flex-wrap" v-for="(card, index) in game.hand" :id="index" draggable="true"
+        <div class="card flex-wrap" v-for="(card, index) in game.hand" :id="String(index)" draggable="true"
             @dragstart="dragStart">
             {{ card }}</div>
     </div>
 </template>
 
 <script setup lang="ts">
+import useDragAndDrop from '~/composables/dragAndDrop';
+
 const game = useGameStore();
 
-const dragStart = (event: any) => {
-    event.dataTransfer.setData("text", event.target.id);
-};
+const { dragStart } = useDragAndDrop();
+
 </script>
 
 <style scoped>
