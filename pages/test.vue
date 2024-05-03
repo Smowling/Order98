@@ -5,6 +5,7 @@
         </nav>
         <DropZones />
         <Cards />
+        <button @click="game.draw">Draw</button>
     </WindowFrame>
 
 </template>
