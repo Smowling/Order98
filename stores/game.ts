@@ -12,6 +12,7 @@ export const useGameStore = defineStore('game', {
             desc1: [100],
             desc2: [100],
         },
+        history: [] as any,
     }),
     actions: {
         setup() {
@@ -22,17 +23,15 @@ export const useGameStore = defineStore('game', {
                 const j = Math.floor(Math.random() * (i + 1));
                 [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
             }
-
-            while (this.hand.length < 8) {
-                this.draw();
-            }
+            this.draw();
             this.save();
         },
         async save() {
             const gameState = {
                 deck: this.deck,
                 hand: this.hand,
-                piles: this.piles
+                piles: this.piles,
+                history: this.history
             };
             localStorage.setItem('gameState', JSON.stringify({
                 gameState
@@ -40,17 +39,28 @@ export const useGameStore = defineStore('game', {
 
         },
         draw() {
-            const card = this.deck.pop();
-            if (card !== undefined) {
-                this.hand.push(card);
+            while (this.hand.length < 8) {
+                const card = this.deck.pop();
+                if (card !== undefined) {
+                    this.hand.push(card);
+                }
             }
+            this.save();
         },
         load(gameState: any) {
             this.deck = gameState.deck;
             this.hand = gameState.hand;
             this.piles = gameState.piles;
         },
-
+        playCard() {
+            const gameState = {
+                deck: this.deck,
+                hand: this.hand,
+                piles: this.piles
+            };
+            this.history.push(gameState);
+            this.save();
+        },
         test() {
             const index = this.hand.indexOf(12);
             if (index > -1) {
