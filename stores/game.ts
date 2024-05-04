@@ -44,6 +44,9 @@ export const useGameStore = defineStore('game', {
                 if (card !== undefined) {
                     this.hand.push(card);
                 }
+                else {
+                    break;
+                }
             }
             this.save();
         },
