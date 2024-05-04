@@ -38,6 +38,11 @@ export const useGameStore = defineStore('game', {
             }));
 
         },
+        load(gameState: any) {
+            this.deck = gameState.deck;
+            this.hand = gameState.hand;
+            this.piles = gameState.piles;
+        },
         draw() {
             while (this.hand.length < 8 && this.deck.length > 0) {
                 const card = this.deck.pop();
@@ -46,11 +51,6 @@ export const useGameStore = defineStore('game', {
                 }
             }
             this.save();
-        },
-        load(gameState: any) {
-            this.deck = gameState.deck;
-            this.hand = gameState.hand;
-            this.piles = gameState.piles;
         },
         playCard() {
             const gameState = {
