@@ -39,13 +39,10 @@ export const useGameStore = defineStore('game', {
 
         },
         draw() {
-            while (this.hand.length < 8) {
+            while (this.hand.length < 8 && this.deck.length > 0) {
                 const card = this.deck.pop();
                 if (card !== undefined) {
                     this.hand.push(card);
-                }
-                else {
-                    break;
                 }
             }
             this.save();
