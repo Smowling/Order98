@@ -1,7 +1,5 @@
 import { defineStore } from 'pinia';
 
-const key = '6789qweedaf2er896qwer68f6qetqrt6lj7k6doljwer'
-
 export const useGameStore = defineStore('game', {
     state: () => ({
         deck: [] as number[],
