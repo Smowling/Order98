@@ -63,12 +63,6 @@ export const useGameStore = defineStore('game', {
             };
             this.history.push(gameState);
             this.save();
-        },
-        test() {
-            const index = this.hand.indexOf(12);
-            if (index > -1) {
-                this.piles.asc1.push(...this.hand.splice(index, 1));
-            }
         }
 
     }
