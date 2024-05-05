@@ -10,19 +10,35 @@ export const useGameStore = defineStore('game', {
             desc1: [100],
             desc2: [100],
         },
+        handSize: 8 as number,
         history: [] as any,
     }),
     actions: {
         setup() {
             for (let i = 2; i < 100; i++) {
+                // create list of 2-99
                 this.deck.push(i);
             }
+            // randomize order
             for (let i = this.deck.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
             }
             this.draw();
             this.save();
+        },
+        restart() {
+            this.deck = [];
+            this.hand = [];
+            this.piles = {
+                asc1: [1],
+                asc2: [1],
+                desc1: [100],
+                desc2: [100],
+            };
+            this.handSize = 8;
+            this.history = [];
+            this.setup();
         },
         async save() {
             const gameState = {
@@ -42,7 +58,7 @@ export const useGameStore = defineStore('game', {
             this.piles = gameState.piles;
         },
         draw() {
-            while (this.hand.length < 8 && this.deck.length > 0) {
+            while (this.hand.length < this.handSize && this.deck.length > 0) {
                 const card = this.deck.pop();
                 if (card !== undefined) {
                     this.hand.push(card);

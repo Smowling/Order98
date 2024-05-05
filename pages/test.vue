@@ -2,6 +2,7 @@
     <WindowFrame>
         <nav>
             <Drawer />
+            <button @click="game.restart">Restart</button>
         </nav>
         <DropZones />
         <Cards />
