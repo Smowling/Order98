@@ -16,6 +16,7 @@
 const game = useGameStore();
 
 onMounted(() => {
+    // start game or load from localstorage
     if (!localStorage.getItem('gameState')) {
         game.setup();
     }
