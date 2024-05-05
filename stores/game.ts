@@ -15,29 +15,13 @@ export const useGameStore = defineStore('game', {
     }),
     actions: {
         setup() {
-            for (let i = 2; i < 100; i++) {
-                // create list of 2-99
-                this.deck.push(i);
-            }
-            // randomize order
-            for (let i = this.deck.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
-            }
+            this.createDeck();
+            this.shuffleDeck();
             this.draw();
             this.save();
         },
         restart() {
-            this.deck = [];
-            this.hand = [];
-            this.piles = {
-                asc1: [1],
-                asc2: [1],
-                desc1: [100],
-                desc2: [100],
-            };
-            this.handSize = 8;
-            this.history = [];
+            this.resetGameState();
             this.setup();
         },
         async save() {
@@ -47,10 +31,7 @@ export const useGameStore = defineStore('game', {
                 piles: this.piles,
                 history: this.history
             };
-            localStorage.setItem('gameState', JSON.stringify({
-                gameState
-            }));
-
+            localStorage.setItem('gameState', JSON.stringify(gameState));
         },
         load(gameState: any) {
             this.deck = gameState.deck;
@@ -74,7 +55,29 @@ export const useGameStore = defineStore('game', {
             };
             this.history.push(gameState);
             this.save();
+        },
+        createDeck() {
+            for (let i = 2; i < 100; i++) {
+                this.deck.push(i);
+            }
+        },
+        shuffleDeck() {
+            for (let i = this.deck.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [this.deck[i], this.deck[j]] = [this.deck[j], this.deck[i]];
+            }
+        },
+        resetGameState() {
+            this.deck = [];
+            this.hand = [];
+            this.piles = {
+                asc1: [1],
+                asc2: [1],
+                desc1: [100],
+                desc2: [100],
+            };
+            this.handSize = 8;
+            this.history = [];
         }
-
     }
 });
