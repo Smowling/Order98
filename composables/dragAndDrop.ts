@@ -29,16 +29,16 @@ export default function useDragAndDrop() {
 
         // Prevent dropping if the target is also draggable
         if (!targetElement.getAttribute("draggable")) {
-            if (targetElement.id === "asc1" && cardIndex > -1 && validPlay(true, pileValue, cardValue)) {
+            if (targetElement.id === "asc1" && cardIndex > -1 && cardValue > -1 && validPlay(true, pileValue, cardValue)) {
                 game.piles.asc1.push(...game.hand.splice(cardIndex, 1));
             }
-            if (targetElement.id === "asc2" && cardIndex > -1 && validPlay(true, pileValue, cardValue)) {
+            if (targetElement.id === "asc2" && cardIndex > -1 && cardValue > -1 && validPlay(true, pileValue, cardValue)) {
                 game.piles.asc2.push(...game.hand.splice(cardIndex, 1));
             }
-            if (targetElement.id === "desc1" && cardIndex > -1 && validPlay(false, pileValue, cardValue)) {
+            if (targetElement.id === "desc1" && cardIndex > -1 && cardValue > -1 && validPlay(false, pileValue, cardValue)) {
                 game.piles.desc1.push(...game.hand.splice(cardIndex, 1));
             }
-            if (targetElement.id === "desc2" && cardIndex > -1 && validPlay(false, pileValue, cardValue)) {
+            if (targetElement.id === "desc2" && cardIndex > -1 && cardValue > -1 && validPlay(false, pileValue, cardValue)) {
                 game.piles.desc2.push(...game.hand.splice(cardIndex, 1));
             }
         }
