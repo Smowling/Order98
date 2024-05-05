@@ -3,16 +3,19 @@
         <li>
             <button @click="game.draw">
                 draw
-                <!-- <span class="badge badge-xs badge-info"></span> -->
             </button>
         </li>
         <li>
             cards {{ game.deck.length }}
         </li>
-        <li>
+        <li v-if="game.hand.length <= game.handSize - 2">
             <button @click="game.draw">
                 draw
-                <span v-if="game.hand.length <= game.handSize - 2" class="badge badge-sm badge-warning">Draw</span>
+            </button>
+        </li>
+        <li v-else class="disabled">
+            <button @click="game.draw">
+                draw
             </button>
         </li>
     </ul>
