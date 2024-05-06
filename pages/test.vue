@@ -1,5 +1,5 @@
 <template>
-    <container class="window-frame">
+    <div class="window-frame">
         <WindowFrame>
             <div class="window-frame">
                 <nav>
@@ -12,7 +12,7 @@
                 <BottomNav />
             </div>
         </WindowFrame>
-    </container>
+    </div>
 </template>
 
 <script setup lang="ts">
