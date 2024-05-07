@@ -66,5 +66,5 @@ export default function useDragAndDrop() {
         return false;
     };
 
-    return { dragOver, drop, dragStart };
+    return { drop, dragStart };
 }
