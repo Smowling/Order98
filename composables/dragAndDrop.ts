@@ -6,14 +6,6 @@ export default function useDragAndDrop() {
     const game = useGameStore();
 
     /**
-     * Prevents the default behavior of the drag event.
-     * @param {DragEvent} event - The drag event.
-     */
-    const dragOver = (event: DragEvent) => {
-        event.preventDefault();
-    };
-
-    /**
      * Handles the drop event and performs actions based on the target element's ID and the validity of the play.
      * @param {DragEvent} event - The drop event.
      */

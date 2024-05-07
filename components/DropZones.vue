@@ -1,13 +1,13 @@
 <template>
     <div class="grid grid-cols-1 justify-evenly">
         <div class="flex justify-evenly">
-            <div class="zone" id="desc1" @dragover="dragOver" @drop="drop">{{ last(game.piles.desc1) }}</div>
-            <div class="zone" id="desc2" @dragover="dragOver" @drop="drop">{{ last(game.piles.desc2) }}</div>
+            <div class="zone" id="desc1" @dragover.prevent @drop="drop">{{ last(game.piles.desc1) }}</div>
+            <div class="zone" id="desc2" @dragover.prevent @drop="drop">{{ last(game.piles.desc2) }}</div>
 
         </div>
         <div class="flex justify-evenly">
-            <div class="zone" id="asc1" @dragover="dragOver" @drop="drop">{{ last(game.piles.asc1) }}</div>
-            <div class="zone" id="asc2" @dragover="dragOver" @drop="drop">{{ last(game.piles.asc2) }}</div>
+            <div class="zone" id="asc1" @dragover.prevent @drop="drop">{{ last(game.piles.asc1) }}</div>
+            <div class="zone" id="asc2" @dragover.prevent @drop="drop">{{ last(game.piles.asc2) }}</div>
 
         </div>
     </div>
