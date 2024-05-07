@@ -78,6 +78,17 @@ export const useGameStore = defineStore('game', {
             };
             this.handSize = 8;
             this.history = [];
+        },
+        undo() {
+            if (this.history.length > 0) {
+                const lastGameState = this.history.pop();
+                console.log(lastGameState)
+                this.deck = lastGameState.deck;
+                this.hand = lastGameState.hand;
+                this.piles = lastGameState.piles;
+            } else {
+                console.error("No more states to undo.");
+            }
         }
     }
 });

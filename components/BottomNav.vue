@@ -1,8 +1,8 @@
 <template>
     <ul class="menu bg-base-200 lg:menu-horizontal rounded-box">
         <li>
-            <button @click="game.draw">
-                draw
+            <button @click="game.undo">
+                undo
             </button>
         </li>
         <li>
@@ -14,7 +14,7 @@
             </button>
         </li>
         <li v-else class="disabled">
-            <button @click="game.draw">
+            <button>
                 draw
             </button>
         </li>
