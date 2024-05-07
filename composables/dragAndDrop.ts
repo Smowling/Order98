@@ -29,6 +29,7 @@ export default function useDragAndDrop() {
 
         // Prevent dropping if the target is also draggable
         if (!targetElement.getAttribute("draggable")) {
+
             if (targetElement.id === "asc1" && cardIndex > -1 && cardValue > -1 && validPlay(true, pileValue, cardValue)) {
                 game.piles.asc1.push(...game.hand.splice(cardIndex, 1));
             }
@@ -41,8 +42,8 @@ export default function useDragAndDrop() {
             if (targetElement.id === "desc2" && cardIndex > -1 && cardValue > -1 && validPlay(false, pileValue, cardValue)) {
                 game.piles.desc2.push(...game.hand.splice(cardIndex, 1));
             }
+            game.saveHistory();
         }
-        game.playCard();
     };
 
     /**
