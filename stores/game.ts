@@ -38,7 +38,6 @@ export const useGameStore = defineStore('game', {
             localStorage.setItem('gameState', JSON.stringify(gameState));
         },
         load(gameState: any) {
-            console.log('game loaded') //todo remove
             this.deck = gameState.deck;
             this.hand = gameState.hand;
             this.piles = gameState.piles;
@@ -86,8 +85,8 @@ export const useGameStore = defineStore('game', {
             this.history = [];
         },
         undo() {
-            if (this.history.length > 0) {
-                const lastGameState = JSON.parse(localStorage.getItem('gameState')!);
+            const lastGameState = JSON.parse(localStorage.getItem('gameState')!);
+            if (lastGameState) {
                 this.load(lastGameState);
                 console.log('game loaded with state: ', lastGameState);
                 this.saveStorage();
