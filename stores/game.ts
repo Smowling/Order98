@@ -24,7 +24,11 @@ export const useGameStore = defineStore('game', {
             this.resetGameState();
             this.setup();
         },
-        async save() {
+        save() {
+            this.saveHistory();
+            this.saveStorage();
+        },
+        async saveStorage() {
             const gameState = {
                 deck: this.deck,
                 hand: this.hand,
@@ -46,7 +50,8 @@ export const useGameStore = defineStore('game', {
                     this.hand.push(card);
                 }
             }
-            this.save();
+            this.history = [];
+            this.saveStorage();
         },
         saveHistory() {
             const gameState = {
@@ -55,7 +60,7 @@ export const useGameStore = defineStore('game', {
                 piles: this.piles
             };
             this.history.push(gameState);
-            this.save();
+            this.saveStorage();
         },
         createDeck() {
             for (let i = 2; i < 100; i++) {
@@ -82,8 +87,10 @@ export const useGameStore = defineStore('game', {
         },
         undo() {
             if (this.history.length > 0) {
-                const lastGameState = this.history.pop();
-                this.load(lastGameState)
+                const lastGameState = JSON.parse(localStorage.getItem('gameState')!);
+                this.load(lastGameState);
+                console.log('game loaded with state: ', lastGameState);
+                this.saveStorage();
             } else {
                 console.error("No more states to undo.");
             }

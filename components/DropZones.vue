@@ -17,12 +17,9 @@
 import useDragAndDrop from '~/composables/dragAndDrop';
 
 const game = useGameStore();
-const { dragOver, drop } = useDragAndDrop();
+const { drop } = useDragAndDrop();
 
 
-// const dragOver = (event: any) => {
-//     event.preventDefault(); // Necessary to allow dropping
-// };
 
 // const drop = (event: any) => {
 //     event.preventDefault();
