@@ -13,7 +13,8 @@
 </template>
 
 <script setup lang="ts">
-
+// https://www.youtube.com/watch?v=6qpEOBkDr88
+// todo
 </script>
 
 <style scoped>
