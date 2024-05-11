@@ -9,6 +9,9 @@
         <div class="con card">test1</div>
         <div class="con card">test1</div>
         <div class="con card">test1</div>
+        <button class="undo">undo</button>
+        <button class="amount">cards</button>
+        <button class="draw">draw</button>
     </div>
 </template>
 
@@ -25,6 +28,7 @@
     height: 100vh;
     /* 100% of the viewport height */
     width: 100vw;
+    max-width: 700px;
     /* 100% of the viewport width */
     gap: 10px;
     padding: 50px;
@@ -40,6 +44,21 @@
     grid-column: span 1;
     padding: 1em;
     margin: 5px;
+}
+
+.undo {
+    grid-column: 1 / 2;
+    grid-row: 10;
+}
+
+.amount {
+    grid-column: 2 / 4;
+    grid-row: 10;
+}
+
+.draw {
+    grid-column: 4 / 5;
+    grid-row: 10;
 }
 
 .asc1 {
