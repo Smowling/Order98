@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container min-w-80 max-w-96 h-96">
         <div class="asc1">asc1</div>
         <div class="asc2">asc2</div>
         <div class="desc1">test1</div>
@@ -25,16 +25,8 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(10, 1fr);
-    height: 100vh;
-    max-height: 1000;
-    min-height: 700;
-    /* 100% of the viewport height */
-    width: 100vw;
-    max-width: 650px;
-    min-width: 400;
-    /* 100% of the viewport width */
     gap: 10px;
-    padding: 50px;
+    padding: 15px;
     /* Adjust the gap as needed */
 }
 
