@@ -1,5 +1,5 @@
 <template>
-    <div class="container min-w-80 max-w-96 h-96">
+    <div class="container min-w-80 max-w-96 h-96 h-svh">
         <div class="asc1">asc1</div>
         <div class="asc2">asc2</div>
         <div class="desc1">test1</div>
