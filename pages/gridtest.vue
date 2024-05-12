@@ -26,9 +26,12 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(10, 1fr);
     height: 100vh;
+    max-height: 1000;
+    min-height: 700;
     /* 100% of the viewport height */
     width: 100vw;
-    max-width: 700px;
+    max-width: 650px;
+    min-width: 400;
     /* 100% of the viewport width */
     gap: 10px;
     padding: 50px;
