@@ -1,19 +1,21 @@
 <template>
     <div class="flex-col">
-        <div class="grid-cols-2 grid-rows-2">
-            <div class="asc1">asc1</div>
-            <div class="asc2">asc2</div>
-            <div class="desc1">test1</div>
-            <div class="desc2">test1</div>
+        <div class="grid-rows-2">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
         </div>
         <div class="con card">test1</div>
         <div class="con card">test1</div>
         <div class="con card">test1</div>
         <div class="con card">test1</div>
         <div class="con card">test1</div>
-        <button class="undo">undo</button>
-        <button class="amount">cards</button>
-        <button class="draw">draw</button>
+        <div class="grid-cols-3">
+            <button class="undo">undo</button>
+            <button class="amount">cards</button>
+            <button class="draw">draw</button>
+        </div>
     </div>
 </template>
 
@@ -49,12 +51,12 @@
 }
 
 .amount {
-    grid-column: 2 / 4;
+    grid-column: 2 / 3;
     grid-row: 10;
 }
 
 .draw {
-    grid-column: 4 / 5;
+    grid-column: 3 / 4;
     grid-row: 10;
 }
 
