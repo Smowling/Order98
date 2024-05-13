@@ -1,6 +1,6 @@
 <template>
     <div class="flex-col">
-        <div class="grid-cols-2 grid-rows-2 min-w-80 max-w-96 md:h-96 sm:h-svh">
+        <div class="grid-cols-2 grid-rows-2">
             <div class="asc1">asc1</div>
             <div class="asc2">asc2</div>
             <div class="desc1">test1</div>
@@ -59,26 +59,26 @@
 }
 
 .asc1 {
-    grid-column: 1 / 3;
-    grid-row: 1 / 3;
+    grid-column: span 1;
+    grid-row: span 1;
     background-color: aqua;
 }
 
 .asc2 {
-    grid-column: 3 / 5;
-    grid-row: 1 / 3;
+    grid-column: span 1;
+    grid-row: span 1;
     background-color: aqua;
 }
 
 .desc1 {
-    grid-column: 1 / 3;
-    grid-row: 3 / 5;
+    grid-column: span 1;
+    grid-row: span 1;
     background-color: aqua;
 }
 
 .desc2 {
-    grid-column: 3 / 5;
-    grid-row: 3 / 5;
+    grid-column: span 1;
+    grid-row: span 1;
     background-color: aqua;
 }
 </style>
