@@ -1,9 +1,11 @@
 <template>
-    <div class="container min-w-80 max-w-96 h-96 h-svh">
-        <div class="asc1">asc1</div>
-        <div class="asc2">asc2</div>
-        <div class="desc1">test1</div>
-        <div class="desc2">test1</div>
+    <div class="flex-col">
+        <div class="grid-cols-2 grid-rows-2 min-w-80 max-w-96 md:h-96 sm:h-svh">
+            <div class="asc1">asc1</div>
+            <div class="asc2">asc2</div>
+            <div class="desc1">test1</div>
+            <div class="desc2">test1</div>
+        </div>
         <div class="con card">test1</div>
         <div class="con card">test1</div>
         <div class="con card">test1</div>
