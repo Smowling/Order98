@@ -1,6 +1,6 @@
 <template>
-    <div class="flex-col">
-        <div class="grid-rows-2">
+    <div class="flex flex-col">
+        <div class="grid grid-cols-2">
             <div>1</div>
             <div>2</div>
             <div>3</div>
@@ -11,7 +11,7 @@
         <div class="con card">test1</div>
         <div class="con card">test1</div>
         <div class="con card">test1</div>
-        <div class="grid-cols-3">
+        <div class="grid grid-cols-3">
             <button class="undo">undo</button>
             <button class="amount">cards</button>
             <button class="draw">draw</button>
