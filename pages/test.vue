@@ -1,5 +1,5 @@
 <template>
-    <div class="window-frame">
+    <div class="flex h-screen justify-center items-center">
         <WindowFrame>
             <div class="window-frame">
                 <nav>
@@ -34,17 +34,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.window-frame {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* Centers content vertically */
-    align-items: center;
-    /* Centers content horizontally */
-    height: 100%;
-    /* Ensure WindowFrame takes full height */
-}
-
 .content-expand {
     flex-grow: 1;
 }
