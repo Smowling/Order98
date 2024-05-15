@@ -1,18 +1,14 @@
 <template>
-    <div class="flex h-screen justify-center items-center">
-        <WindowFrame>
-            <div class="window-frame">
-                <nav>
-                    <Drawer />
-                    <button @click="game.restart">Restart</button>
-                </nav>
-                <DropZones />
-                <div class="content-expand"></div> <!-- This div will push the BottomNav to the bottom -->
-                <Cards />
-                <BottomNav />
-            </div>
-        </WindowFrame>
-    </div>
+    <WindowFrame>
+        <nav>
+            <Drawer />
+            <button @click="game.restart">Restart</button>
+        </nav>
+        <DropZones />
+        <div class="content-expand"></div> <!-- This div will push the BottomNav to the bottom -->
+        <Cards />
+        <BottomNav />
+    </WindowFrame>
 </template>
 
 <script setup lang="ts">
