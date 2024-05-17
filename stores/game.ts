@@ -88,6 +88,7 @@ export const useGameStore = defineStore('game', {
             const lastGameState = JSON.parse(localStorage.getItem('gameState')!);
             if (lastGameState.history.length > 0) {
                 this.load(lastGameState.history.pop());
+                console.log('lastgamestate loaded')
                 this.saveStorage();
             } else {
                 console.error("No more states to undo.");
