@@ -62,9 +62,7 @@ export const useGameStore = defineStore('game', {
             this.saveStorage();
         },
         createDeck() {
-            for (let i = 2; i < 100; i++) {
-                this.deck.push(i);
-            }
+            this.deck = Array.from({ length: 98 }, (_, i) => i + 2);
         },
         shuffleDeck() {
             for (let i = this.deck.length - 1; i > 0; i--) {
