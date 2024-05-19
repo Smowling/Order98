@@ -34,7 +34,6 @@ export default function useDragAndDrop() {
             if (targetElement.id === "desc2" && cardIndex > -1 && cardValue > -1 && validPlay(false, pileValue, cardValue)) {
                 game.piles.desc2.push(...game.hand.splice(cardIndex, 1));
             }
-            game.saveHistory();
         }
     };
 
