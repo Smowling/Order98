@@ -1,9 +1,6 @@
 <template>
     <WindowFrame>
-        <nav>
-            <Drawer />
-            <button @click="game.restart">Restart</button>
-        </nav>
+        <TopNav />
         <DropZones />
         <div class="content-expand"></div> <!-- This div will push the BottomNav to the bottom -->
         <Cards />
