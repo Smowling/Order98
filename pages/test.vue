@@ -2,7 +2,7 @@
     <WindowFrame>
         <TopNav />
         <DropZones />
-        <div class="content-expand"></div> <!-- This div will push the BottomNav to the bottom -->
+        <!-- T<div class="content-expand"></div> his div will push the BottomNav to the bottom -->
         <Cards />
         <BottomNav />
     </WindowFrame>
