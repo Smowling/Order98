@@ -50,7 +50,7 @@ export const useGameStore = defineStore('game', {
                 }
             }
             this.history = [];
-            this.saveStorage();
+            this.saveHistory();
         },
         saveHistory() {
             const gameState = {
