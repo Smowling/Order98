@@ -1,5 +1,5 @@
 <template>
-    <div class="border bg-primary-600 ">
+    <UContainer class="border bg-primary-600 w-96 ">
         <slot></slot>
-    </div>
+    </UContainer>
 </template>
