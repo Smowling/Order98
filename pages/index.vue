@@ -3,7 +3,6 @@
         <TopNav />
         <UDivider />
         <DropZones />
-        <!-- T<div class="content-expand"></div> his div will push the BottomNav to the bottom -->
         <Cards />
         <BottomNav />
     </WindowFrame>
@@ -27,8 +26,4 @@ onMounted(() => {
 
 </script>
 
-<style scoped>
-.content-expand {
-    flex-grow: 1;
-}
-</style>
+<style scoped></style>
