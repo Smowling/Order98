@@ -1,6 +1,7 @@
 <template>
     <WindowFrame>
         <TopNav />
+        <UDivider />
         <DropZones />
         <!-- T<div class="content-expand"></div> his div will push the BottomNav to the bottom -->
         <Cards />
