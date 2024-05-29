@@ -1,5 +1,5 @@
 <template>
-    <UButton icon="i-heroicons-inbox" color="gray" />
+    <UButton label="Restart" color="primary" @click="game.restart" />
 
 </template>
 
