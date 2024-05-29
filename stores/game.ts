@@ -59,7 +59,6 @@ export const useGameStore = defineStore('game', {
                 piles: this.piles
             };
             this.history.push(gameState);
-            this.saveStorage();
         },
         createDeck() {
             this.deck = Array.from({ length: 98 }, (_, i) => i + 2);
@@ -83,9 +82,8 @@ export const useGameStore = defineStore('game', {
             this.history = [];
         },
         undo() {
-            const lastGameState = JSON.parse(localStorage.getItem('gameState')!);
-            if (lastGameState.history.length > 0) {
-                this.load(lastGameState.history.pop());
+            if (this.history.length > 0) {
+                this.load(this.history.pop());
                 console.log('lastgamestate loaded')
                 this.saveStorage();
             } else {
