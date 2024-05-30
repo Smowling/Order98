@@ -81,7 +81,7 @@ export const useGameStore = defineStore('game', {
             this.history = [];
         },
         undo() {
-            console.log("history len: ", this.history.length)
+            console.log("history len: ", this.history.length, this.history)
             if (this.history.length > 0) {
                 this.load(this.history.pop());
                 console.log('lastgamestate loaded')
