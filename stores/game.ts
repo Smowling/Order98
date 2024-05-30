@@ -50,7 +50,6 @@ export const useGameStore = defineStore('game', {
                 }
             }
             this.history = [];
-            this.saveHistory();
         },
         saveHistory() {
             const gameState = {
@@ -86,7 +85,7 @@ export const useGameStore = defineStore('game', {
             if (this.history.length > 0) {
                 this.load(this.history.pop());
                 console.log('lastgamestate loaded')
-                this.saveStorage();
+                this.save();
             } else {
                 console.error("No more states to undo.");
             }
