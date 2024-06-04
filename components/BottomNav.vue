@@ -5,7 +5,7 @@
 const game = useGameStore();
 const links = [
     {
-        label: 'Deck: '
+        label: 'Deck: ' + game.deck.length
     }, {
         label: 'Draw',
         click: game.draw
