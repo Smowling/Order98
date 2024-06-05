@@ -4,14 +4,15 @@
 
 <script setup>
 const game = useGameStore();
-const links = [{
-    label: 'Order98'
-},
-{
-    label: 'Restart',
-    icon: 'ic-baseline-sync',
-    click: game.restart
-}
+const links = [
+    {
+        label: 'Order98'
+    },
+    {
+        label: 'Restart',
+        icon: 'ic-baseline-sync',
+        click: game.restart
+    }
 ]
 </script>
 
