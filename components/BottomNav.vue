@@ -5,8 +5,13 @@
 const game = useGameStore();
 const links = [
     {
+        label: 'Undo',
+        click: game.undo
+    },
+    {
         label: 'Deck: ' + game.deck.length
-    }, {
+    },
+    {
         label: 'Draw',
         click: game.draw
     }
