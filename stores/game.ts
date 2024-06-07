@@ -41,6 +41,7 @@ export const useGameStore = defineStore('game', {
             this.deck = gameState.deck;
             this.hand = gameState.hand;
             this.piles = gameState.piles;
+            this.history = gameState.history;
         },
         draw() {
             while (this.hand.length < this.handSize && this.deck.length > 0) {
