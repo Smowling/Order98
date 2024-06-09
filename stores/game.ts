@@ -33,11 +33,18 @@ export const useGameStore = defineStore('game', {
             };
             localStorage.setItem('gameState', JSON.stringify(gameState));
         },
+        playcard() {
+            const gameState = {
+                deck: this.deck,
+                hand: this.hand,
+                piles: this.piles,
+            }
+            this.history.push(gameState);
+        },
         load(gameState: any) {
             this.deck = gameState.deck;
             this.hand = gameState.hand;
             this.piles = gameState.piles;
-            this.history = gameState.history;
         },
         draw() {
             while (this.hand.length < this.handSize && this.deck.length > 0) {
