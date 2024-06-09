@@ -25,10 +25,6 @@ export const useGameStore = defineStore('game', {
             this.setup();
         },
         save() {
-            this.saveHistory();
-            this.saveStorage();
-        },
-        async saveStorage() {
             const gameState = {
                 deck: this.deck,
                 hand: this.hand,
@@ -52,14 +48,7 @@ export const useGameStore = defineStore('game', {
             }
             this.history = [];
         },
-        saveHistory() {
-            const gameState = {
-                deck: this.deck,
-                hand: this.hand,
-                piles: this.piles
-            };
-            this.history.push(gameState);
-        },
+
         createDeck() {
             this.deck = Array.from({ length: 98 }, (_, i) => i + 2);
         },
