@@ -23,19 +23,15 @@ export default function useDragAndDrop() {
         if (!targetElement.getAttribute("draggable")) {
 
             if (targetElement.id === "asc1" && cardIndex > -1 && cardValue > -1 && validPlay(true, pileValue, cardValue)) {
-                game.playcard();
                 game.piles.asc1.push(...game.hand.splice(cardIndex, 1));
             }
             if (targetElement.id === "asc2" && cardIndex > -1 && cardValue > -1 && validPlay(true, pileValue, cardValue)) {
-                game.playcard();
                 game.piles.asc2.push(...game.hand.splice(cardIndex, 1));
             }
             if (targetElement.id === "desc1" && cardIndex > -1 && cardValue > -1 && validPlay(false, pileValue, cardValue)) {
-                game.playcard();
                 game.piles.desc1.push(...game.hand.splice(cardIndex, 1));
             }
             if (targetElement.id === "desc2" && cardIndex > -1 && cardValue > -1 && validPlay(false, pileValue, cardValue)) {
-                game.playcard();
                 game.piles.desc2.push(...game.hand.splice(cardIndex, 1));
             }
         }
@@ -46,6 +42,8 @@ export default function useDragAndDrop() {
      * @param {DragEvent} event - The drag event.
      */
     const dragStart = (event: any) => {
+        game.playcard();
+
         event.dataTransfer.setData("text", event.target.id);
     };
 

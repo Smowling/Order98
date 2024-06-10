@@ -39,6 +39,7 @@ export const useGameStore = defineStore('game', {
                 hand: this.hand,
                 piles: this.piles,
             }
+            console.log(gameState)
             this.history.push(gameState);
         },
         load(gameState: any) {
@@ -79,7 +80,9 @@ export const useGameStore = defineStore('game', {
         },
         undo() {
             if (this.history.length > 0) {
-                this.load(this.history.pop());
+                debugger;
+                const lastPlay = this.history.pop()
+                this.load(lastPlay);
                 this.save();
             } else {
                 console.error("No more states to undo.");
