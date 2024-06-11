@@ -39,8 +39,8 @@ export const useGameStore = defineStore('game', {
                 hand: this.hand,
                 piles: this.piles,
             }
-            console.log(gameState)
             this.history.push(gameState);
+            console.log("history:", this.history)
         },
         load(gameState: any) {
             this.deck = gameState.deck;
@@ -82,6 +82,7 @@ export const useGameStore = defineStore('game', {
             if (this.history.length > 0) {
                 debugger;
                 const lastPlay = this.history.pop()
+                console.log(lastPlay);
                 this.load(lastPlay);
                 this.save();
             } else {
