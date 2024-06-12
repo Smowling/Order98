@@ -34,7 +34,6 @@ export const useGameStore = defineStore('game', {
             localStorage.setItem('gameState', JSON.stringify(gameState));
         },
         playcard() {
-
             const gameState = JSON.parse(JSON.stringify(
                 {
                     deck: this.deck,
@@ -82,7 +81,6 @@ export const useGameStore = defineStore('game', {
         },
         undo() {
             if (this.history.length > 0) {
-                debugger;
                 const lastPlay = this.history.pop()
                 console.log(lastPlay);
                 this.load(lastPlay);
