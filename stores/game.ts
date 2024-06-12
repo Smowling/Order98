@@ -34,11 +34,13 @@ export const useGameStore = defineStore('game', {
             localStorage.setItem('gameState', JSON.stringify(gameState));
         },
         playcard() {
-            const gameState = {
-                deck: this.deck,
-                hand: this.hand,
-                piles: this.piles,
-            }
+
+            const gameState = JSON.parse(JSON.stringify(
+                {
+                    deck: this.deck,
+                    hand: this.hand,
+                    piles: this.piles,
+                })); // deepcopy
             this.history.push(gameState);
             console.log("history:", this.history)
         },
