@@ -41,6 +41,20 @@ export default function useDragAndDrop() {
         }
     };
 
+    const swapCard = (event: any) => {
+        event.preventDefault();
+        const data = event.dataTransfer.getData("text");
+        const targetElement = event.target;
+        const draggedElement = document.getElementById(data);
+
+        const draggedCardIndex = parseInt(draggedElement.id, 10);
+        const targetCardIndex = parseInt(targetElement.id, 10);
+        console.log(draggedCardIndex, game.hand[draggedCardIndex], targetCardIndex, game.hand[targetCardIndex]);
+        const temp = game.hand[draggedCardIndex];
+        game.hand[draggedCardIndex] = game.hand[targetCardIndex];
+        game.hand[targetCardIndex] = temp;
+    };
+
     /**
      * Sets the data to be transferred during the drag operation.
      * @param {DragEvent} event - The drag event.
@@ -69,5 +83,5 @@ export default function useDragAndDrop() {
         return false;
     };
 
-    return { drop, dragStart };
+    return { drop, dragStart, swapCard };
 }
