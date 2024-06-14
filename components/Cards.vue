@@ -1,7 +1,7 @@
 <template>
     <div v-auto-animate class="grid grid-cols-4 gap-4">
         <div class="card flex-wrap" v-for="(card, index) in game.hand" :id="String(index)" draggable="true"
-            @dragstart="dragStart" @drop="swapCard" @dragover.prevent>
+            @dragstart="dragStart" @drop="swapCard" @dragover="swapCard" @dragover.prevent>
             {{ card }}</div>
     </div>
 </template>
