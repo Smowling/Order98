@@ -41,12 +41,12 @@ export const useGameStore = defineStore('game', {
                     piles: this.piles,
                 })); // deepcopy
             this.history.push(gameState);
-            console.log("history:", this.history)
         },
         load(gameState: any) {
             this.deck = gameState.deck;
             this.hand = gameState.hand;
             this.piles = gameState.piles;
+            this.history = gameState.history;
         },
         draw() {
             while (this.hand.length < this.handSize && this.deck.length > 0) {
@@ -82,7 +82,6 @@ export const useGameStore = defineStore('game', {
         undo() {
             if (this.history.length > 0) {
                 const lastPlay = this.history.pop()
-                console.log(lastPlay);
                 this.load(lastPlay);
                 this.save();
             } else {
