@@ -2,8 +2,8 @@ import { defineStore } from 'pinia';
 
 export const useGameStore = defineStore('game', {
     state: () => ({
-        deck: [] as number[],
-        hand: [] as number[],
+        deck: [] as Card[],
+        hand: [] as Card[],
         piles: {
             asc1: [1] as number[],
             asc2: [1] as number[],
