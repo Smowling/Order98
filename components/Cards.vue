@@ -2,7 +2,7 @@
     <div v-auto-animate class="grid grid-cols-4 gap-4">
         <div class="card flex-wrap" v-for="(card, index) in game.hand" :id="String(index)" draggable="true"
             @dragstart="dragStart" @drop="swapCard" @dragover="swapCard" @dragover.prevent>
-            {{ card }}</div>
+            {{ card.number }}</div>
     </div>
 </template>
 
@@ -19,6 +19,5 @@ const { dragStart, swapCard } = useDragAndDrop();
 .card {
     width: 48px;
     height: 84px;
-    background-color: rgb(157, 75, 171);
 }
 </style>
