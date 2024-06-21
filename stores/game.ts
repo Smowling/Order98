@@ -63,7 +63,6 @@ export const useGameStore = defineStore('game', {
             const deck: Card[] = [];
             const totalCards = 98;
             const startNumber = 2;
-            const endNumber = 99;
 
             for (let i = 0; i < totalCards; i++) {
                 const number = startNumber + i;
