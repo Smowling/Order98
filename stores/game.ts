@@ -71,6 +71,7 @@ export const useGameStore = defineStore('game', {
                 const color = colors[colorIndex];
                 deck.push({ number, color });
             }
+            this.deck = deck;
         },
         shuffleDeck() {
             for (let i = this.deck.length - 1; i > 0; i--) {
