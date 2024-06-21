@@ -5,10 +5,10 @@ export const useGameStore = defineStore('game', {
         deck: [] as Card[],
         hand: [] as Card[],
         piles: {
-            asc1: [1] as number[],
-            asc2: [1] as number[],
-            desc1: [100] as number[],
-            desc2: [100] as number[],
+            asc1: [{ "number": 1, "color": 'gray' }] as Card[],
+            asc2: [{ "number": 1, "color": 'gray' }] as Card[],
+            desc1: [{ "number": 100, "color": 'pink' }] as Card[],
+            desc2: [{ "number": 100, "color": 'pink' }] as Card[],
         },
         handSize: 8 as number,
         history: [] as any,
@@ -82,10 +82,10 @@ export const useGameStore = defineStore('game', {
             this.deck = [];
             this.hand = [];
             this.piles = {
-                asc1: [1],
-                asc2: [1],
-                desc1: [100],
-                desc2: [100],
+                asc1: [{ number: 1, color: 'gray' }] as Card[],
+                asc2: [{ number: 1, color: 'gray' }] as Card[],
+                desc1: [{ number: 100, color: 'pink' }] as Card[],
+                desc2: [{ number: 100, color: 'pink' }] as Card[],
             };
             this.handSize = 8;
             this.history = [];
