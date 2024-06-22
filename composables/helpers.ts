@@ -1,3 +1,3 @@
 export const last = (element: Card[]) => {
-    return element[element.length - 1].number;
+    return element[element.length - 1];
 }
