@@ -41,6 +41,7 @@ export const useGameStore = defineStore('game', {
                     piles: this.piles,
                 })); // deepcopy
             this.history.push(gameState);
+            this.save();
         },
         load(gameState: any) {
             this.deck = gameState.deck;
@@ -56,6 +57,7 @@ export const useGameStore = defineStore('game', {
                 }
             }
             this.history = [];
+            this.save();
         },
 
         createDeck() {
