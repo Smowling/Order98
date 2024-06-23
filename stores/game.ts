@@ -12,6 +12,7 @@ export const useGameStore = defineStore('game', {
         },
         handSize: 8 as number,
         history: [] as any,
+        score: 0 as number,
     }),
     actions: {
         setup() {
@@ -29,7 +30,8 @@ export const useGameStore = defineStore('game', {
                 deck: this.deck,
                 hand: this.hand,
                 piles: this.piles,
-                history: this.history
+                history: this.history,
+                score: this.score,
             };
             localStorage.setItem('gameState', JSON.stringify(gameState));
         },
@@ -39,15 +41,20 @@ export const useGameStore = defineStore('game', {
                     deck: this.deck,
                     hand: this.hand,
                     piles: this.piles,
+                    score: this.score
                 })); // deepcopy
             this.history.push(gameState);
             this.save();
+        },
+        score(card: Card, pile: Card[]) {
+            return 0;
         },
         load(gameState: any) {
             this.deck = gameState.deck;
             this.hand = gameState.hand;
             this.piles = gameState.piles;
             this.history = gameState.history;
+            this.score = gameState.score;
         },
         draw() {
             while (this.hand.length < this.handSize && this.deck.length > 0) {
@@ -91,6 +98,7 @@ export const useGameStore = defineStore('game', {
             };
             this.handSize = 8;
             this.history = [];
+            this.score = 0;
         },
         undo() {
             if (this.history.length > 0) {
