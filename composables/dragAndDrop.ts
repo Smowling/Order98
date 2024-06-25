@@ -42,7 +42,7 @@ export default function useDragAndDrop() {
     };
 
     /**
-     * Handles the swapping of two cards within the player's hand based on drag-and-drop events.
+     * Handles the rearranging of two cards within the player's hand based on drag-and-drop events.
      * @param event - The drag-and-drop event containing information about the dragged and target elements.
      */
     const insertCard = (event: DragEvent): void => {
@@ -55,8 +55,6 @@ export default function useDragAndDrop() {
         const draggedCardIndex = parseInt(draggedElement.id, 10);
         const targetCardIndex = parseInt(targetElement.id, 10);
         game.hand.splice(targetCardIndex, 0, ...game.hand.splice(draggedCardIndex, 1))
-
-        // [game.hand[draggedCardIndex], game.hand[targetCardIndex]] = [game.hand[targetCardIndex], game.hand[draggedCardIndex]];
     };
 
     /**
