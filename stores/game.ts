@@ -46,8 +46,8 @@ export const useGameStore = defineStore('game', {
             this.history.push(gameState);
             this.save();
         },
-        score(card: Card, pile: Card[]) {
-            return 0;
+        scorePlay(cardValue: number, pileValue: number) {
+            this.score += Math.abs(pileValue - cardValue);
         },
         load(gameState: any) {
             this.deck = gameState.deck;

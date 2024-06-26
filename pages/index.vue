@@ -1,6 +1,7 @@
 <template>
     <WindowFrame>
         <TopNav />
+        <p>game score: {{ game.score }}</p>
         <UDivider />
         <DropZones />
         <Cards />
