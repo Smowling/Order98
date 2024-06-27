@@ -24,22 +24,22 @@ export default function useDragAndDrop() {
 
             if (targetElement.id === "asc1" && cardIndex > -1 && cardValue > -1 && validPlay(true, pileValue, cardValue)) {
                 game.playcard();
-                game.scorePlay(cardValue, pileValue);
+                game.scorePlay(cardValue, pileValue, game.piles.asc1.length);
                 game.piles.asc1.push(...game.hand.splice(cardIndex, 1));
             }
             if (targetElement.id === "asc2" && cardIndex > -1 && cardValue > -1 && validPlay(true, pileValue, cardValue)) {
                 game.playcard();
-                game.scorePlay(cardValue, pileValue);
+                game.scorePlay(cardValue, pileValue, game.piles.asc2.length);
                 game.piles.asc2.push(...game.hand.splice(cardIndex, 1));
             }
             if (targetElement.id === "desc1" && cardIndex > -1 && cardValue > -1 && validPlay(false, pileValue, cardValue)) {
                 game.playcard();
-                game.scorePlay(cardValue, pileValue);
+                game.scorePlay(cardValue, pileValue, game.piles.desc1.length);
                 game.piles.desc1.push(...game.hand.splice(cardIndex, 1));
             }
             if (targetElement.id === "desc2" && cardIndex > -1 && cardValue > -1 && validPlay(false, pileValue, cardValue)) {
                 game.playcard();
-                game.scorePlay(cardValue, pileValue);
+                game.scorePlay(cardValue, pileValue, game.piles.desc2.length);
                 game.piles.desc2.push(...game.hand.splice(cardIndex, 1));
             }
         }

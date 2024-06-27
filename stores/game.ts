@@ -46,8 +46,12 @@ export const useGameStore = defineStore('game', {
             this.history.push(gameState);
             this.save();
         },
-        scorePlay(cardValue: number, pileValue: number) {
-            this.score += Math.abs(pileValue - cardValue);
+        scorePlay(cardValue: number, pileValue: number, pileSize: number) {
+            let scoreMod = (pileSize % 10) * 0.1 + 1;
+            if (this.hand.length < this.handSize - 2) {
+                scoreMod += 0.7 - (this.hand.length * 0.1)
+            }
+            this.score += Math.round(Math.abs(pileValue - cardValue) * scoreMod);
         },
         load(gameState: any) {
             this.deck = gameState.deck;
