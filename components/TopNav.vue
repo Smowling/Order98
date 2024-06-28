@@ -9,6 +9,9 @@ const links = [
         label: 'Order98'
     },
     {
+        label: `Score: ${game.score}`
+    },
+    {
         label: 'Restart',
         icon: 'ic-baseline-sync',
         click: game.restart
