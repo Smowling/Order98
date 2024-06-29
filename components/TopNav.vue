@@ -9,7 +9,7 @@ const links = [
         label: 'Order98'
     },
     {
-        label: `Score: ${game.score}`
+        label: 'Score: ' + game.score
     },
     {
         label: 'Restart',
